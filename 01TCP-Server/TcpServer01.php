@@ -41,3 +41,5 @@ $serv->on('close',function ($serv, $fd){
     var_dump($fd);
     echo "关闭连接-end";
 });
+//启动TCP服务器
+$serv->start();

@@ -18,7 +18,7 @@ $serv = new swoole_server($host, $post);
 /**
  * TCP服务存在的$event
  * connect 当建立连接时，$serv:服务器信息  $fd:客户端信息
- * receive 当接收到数据，$serv：服务器信息，$fd:客户端信息，$from_id：ReactorThreadId，$data:数据
+ * receive 当接收到数据，$serv：服务器信息，$fd:客户端信息，$from_id：TCP连接所在的Reactor线程ID，$data:数据
  * close 关闭连接，$serv:服务器信息  $fd:客户端信息
  */
 $serv->on('connect', function ($serv, $fd) {
@@ -42,6 +42,9 @@ $serv->on('receive', function ($serv, $fd, $from_id, $data) {
     echo "\n";
     echo "接收信息-end";
     echo "\n";
+
+    //回复信息给发送者
+    $serv->send($fd,$data,$from_id);
 });
 $serv->on('close',function ($serv, $fd){
     echo "关闭连接-start";

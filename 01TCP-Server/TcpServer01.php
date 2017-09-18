@@ -23,13 +23,13 @@ $serv = new swoole_server($host, $post);
  */
 $serv->on('connect', function ($serv, $fd) {
     echo "建立连接-start";
-    var_dump($serv);
+//    var_dump($serv);
     var_dump($fd);
     echo "建立连接-end";
 });
 $serv->on('receive', function ($serv, $fd, $from_id, $data) {
     echo "接收信息-start";
-    var_dump($serv);
+//    var_dump($serv);
     var_dump($fd);
     var_dump($from_id);
     var_dump($data);
@@ -37,7 +37,7 @@ $serv->on('receive', function ($serv, $fd, $from_id, $data) {
 });
 $serv->on('close',function ($serv, $fd){
     echo "关闭连接-start";
-    var_dump($serv);
+//    var_dump($serv);
     var_dump($fd);
     echo "关闭连接-end";
 });

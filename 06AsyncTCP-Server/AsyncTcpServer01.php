@@ -22,7 +22,7 @@ $serv->on("task", function (swoole_server $serv, $task_id, $from_id, $data) {
 
 //处理结果
 $serv->on('finish', function (swoole_server $serv, $task_id, $data) {
-    echo "执行完成" . $data;
+    echo "执行完成" . $data."\n";
 });
 
 //启动TCP服务器

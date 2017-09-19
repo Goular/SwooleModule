@@ -15,9 +15,9 @@ $serv->on('receive', function (swoole_server $serv, $fd, $form_id, $data) {
 });
 
 //处理异步任务
-$serv->on("task", function ($serv, $task_id, $from_id, $data) {
+$serv->on("task", function (swoole_server $serv, $task_id, $from_id, $data) {
     echo "执行异步任务的ID:$task_id";
-    $serv->finish("$data->ok");
+    $serv->finish($data."->ok");
 });
 
 //处理结果

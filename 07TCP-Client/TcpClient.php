@@ -5,7 +5,7 @@ if (!$client->connect('0.0.0.0', 7070, 1)) {
     die("Connect failed!");
 }
 //向服务器发送数据
-if ($client->send("Hello Sync Tcp Client!")) {
+if ($client->send("Hello Sync Tcp Client")) {
     die("Send failed！");
 }
 //从服务器接收数据

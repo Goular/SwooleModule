@@ -1,21 +1,17 @@
 <?php
 $client = new swoole_client(SWOOLE_SOCK_TCP);
-
 //连接到服务器
-if (!$client->connect('127.0.0.1', 9501, 0.5))
-{
-    die("connect failed.");
+if (!$client->connect('127.0.0.1', 7070, 1)) {
+    die("Connect failed!");
 }
 //向服务器发送数据
-if (!$client->send("hello world"))
-{
-    die("send failed.");
+if ($client->send("Hello Sync Tcp Client")) {
+    die("Send failed！");
 }
 //从服务器接收数据
 $data = $client->recv();
-if (!$data)
-{
-    die("recv failed.");
+if (!$data) {
+    die("Receive failed！");
 }
 echo $data;
 //关闭连接

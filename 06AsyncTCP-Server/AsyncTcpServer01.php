@@ -16,13 +16,13 @@ $serv->on('receive', function (swoole_server $serv, $fd, $form_id, $data) {
 
 //处理异步任务
 $serv->on("task", function (swoole_server $serv, $task_id, $from_id, $data) {
-    echo "执行异步任务的ID:$task_id";
-    $serv->finish($data."->ok");
+    echo "执行异步任务的ID:$task_id \n";
+    $serv->finish($data . "->ok");
 });
 
 //处理结果
 $serv->on('finish', function (swoole_server $serv, $task_id, $data) {
-    echo "执行完成";
+    echo "执行完成" . $data;
 });
 
 //启动TCP服务器

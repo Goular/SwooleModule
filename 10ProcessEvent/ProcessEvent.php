@@ -16,7 +16,7 @@ function doProcess(swoole_process $process)
 {
     //子进程写入信息 pipe
     $process->write("PID:" . $process->pid);
-    echo "写入信息:$process->pid $process->callback";
+    echo "写入信息:$process->pid $process->callback \n";
 }
 
 //添加进程事件，向每一个子进程添加需要执行的动作
@@ -26,3 +26,4 @@ foreach ($workers as $process) {
         echo "接收到:$data\n";
     });
 }
+swoole_process::wait();

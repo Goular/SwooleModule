@@ -15,5 +15,5 @@ if (pcntl_fork() > 0) {
 echo "主进程 释放锁\n";
 unset($lock);
 sleep(1);
-echo "子进程退出\n";
+echo "主进程退出\n";
 

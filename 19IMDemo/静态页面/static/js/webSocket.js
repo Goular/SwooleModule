@@ -2,7 +2,7 @@
  * Created by 27394 on 2017/4/24.
  */
 var msg = document.getElementById("msg");
-var wsServer = 'ws://192.168.50.151:9502';//调用websocket对象建立连接：//参数：ws/wss(加密)：//ip:port （字符串）
+var wsServer = 'ws://39.108.171.126:7070';//调用websocket对象建立连接：//参数：ws/wss(加密)：//ip:port （字符串）
 var websocket = new WebSocket(wsServer);
 websocket.onopen = function (evt) {//onopen监听连接打开
     // 应该显示远程服务器连接成功

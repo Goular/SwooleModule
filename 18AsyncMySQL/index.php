@@ -6,6 +6,7 @@ $server = [
     'port' => 3306,
     'user' => 'goular',
     'password' => '3071611103',
+    'database' => 'test01',
     'charset' => 'utf8'
 ];
 $db->connect($server, function (swoole_mysql $db, $r) {

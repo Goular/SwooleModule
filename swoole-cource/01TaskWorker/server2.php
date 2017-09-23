@@ -91,9 +91,9 @@ class Server
 
     public function onWorkStart($serv, $worker_id){
         if($serv->taskworker){
-            echo "This is taskerWorker";
+            echo "This is taskerWorker\n";
         }else{
-            echo "This is worker";
+            echo "This is worker\n";
         }
     }
 

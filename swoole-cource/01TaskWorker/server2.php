@@ -1,10 +1,8 @@
 <?php
 
 /**
- * 直接使用TCP调试器即可使用
+ * 验证Task对象的改变不会反映到worker进程中
  */
-
-
 class Test
 {
     public $index = 0;
@@ -61,13 +59,10 @@ class Server
     {
         echo "Get Message From Client {$fd}:{$data}\n";
 
-        $data = [
-            'task' => 'task_1',
-            'params' => $data,
-            'fd' => $fd
-        ];
+        $test = new Test();
+        var_dump($this->test);
 
-        $serv->task(json_encode($data));
+        $serv->task(serialize($test));
     }
 
 
@@ -76,12 +71,12 @@ class Server
         echo "This Task {$task_id} from Worker {$from_id}\n";
         echo "Data:{$data}\n";
 
-        $data = json_decode($data,true);
+        $data = unserialize($data);
+        $data->index = 2;
 
-        echo "Receive Task:{$data['task']}\n";
-        var_dump($data['params']);
+        var_dump($data);
+        var_dump($data->test);
 
-        $serv->send($data['fd'], "Hello Task");
         return "Finished.";
     }
 
@@ -89,6 +84,8 @@ class Server
     {
         echo "Task {$task_id} finish\n";
         echo "Result:{$data}\n";
+
+        var_dump($data->test);
     }
 
 }

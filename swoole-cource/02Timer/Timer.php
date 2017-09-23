@@ -37,7 +37,7 @@ class Server
         if ($worker_id == 0) {
             swoole_timer_tick(1000, function ($timer_id, $params) {
                 echo "Timer running\n";
-                echo "recv:{params}\n";
+                echo "recv:{$params}\n";
             }, "Hello");
         }
     }

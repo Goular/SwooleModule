@@ -18,6 +18,7 @@ class Server
             'daemonize' => false,
             'max_request' => 10000,
             'dispatch_mode' => 2,
+            'task_worker_num' => 200
         ));
         $this->serv->on('Start', array($this, 'onStart'));
         $this->serv->on('Connect', array($this, 'onConnect'));

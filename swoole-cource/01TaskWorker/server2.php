@@ -62,7 +62,7 @@ class Server
         $this->test = new Test();
         var_dump($this->test);
 
-        $serv->task(serialize($test));
+        $serv->task(serialize($this->test));
     }
 
 

@@ -30,6 +30,7 @@ class Server
 
         $this->serv->on('Task', array($this, 'onTask'));
         $this->serv->on('Finish', array($this, 'onFinish'));
+        $this->serv->on('WorkStart',array($this,'onWorkStart'));
 
         $this->serv->start();
     }
@@ -86,6 +87,14 @@ class Server
         echo "Result:{$data}\n";
 
         var_dump($this->test);
+    }
+
+    public function onWorkStart($serv, $worker_id){
+        if($serv->taskworker){
+            echo "This is taskerWorker";
+        }else{
+            echo "This is worker";
+        }
     }
 
 }

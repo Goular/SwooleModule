@@ -30,7 +30,7 @@ class Server
 
         $this->serv->on('Task', array($this, 'onTask'));
         $this->serv->on('Finish', array($this, 'onFinish'));
-        $this->serv->on('WorkStart',array($this,'onWorkStart'));
+        $this->serv->on('WorkerStart',array($this,'onWorkStart'));
 
         $this->serv->start();
     }

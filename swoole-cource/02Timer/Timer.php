@@ -35,10 +35,14 @@ class Server
     public function onWorkStart(swoole_server $serv, $worker_id)
     {
         if ($worker_id == 0) {
-            swoole_timer_tick(1000, function ($timer_id, $params) {
-                echo "Timer running\n";
-                echo "recv:{$params}\n";
-            }, "Hello");
+
+            //写法1:
+//            swoole_timer_tick(1000, function ($timer_id, $params) {
+//                echo "Timer running\n";
+//                echo "recv:{$params}\n";
+//            }, "Hello");
+            //写法2：
+            swoole_timer_tick(1000,array($this,'onTick'),"Hello222");
         }
     }
 
@@ -81,6 +85,16 @@ class Server
         echo "Result:{$data}\n";
     }
 
+    public function onTick($timer_id, $params = null)
+    {
+        echo "Timer {$timer_id} running\n";
+        echo "Params:{$params}\n";
+
+        echo "Timer running\n";
+        echo "recv：{$params}";
+
+        var_dump($this->test);
+    }
 }
 
 $server = new Server();

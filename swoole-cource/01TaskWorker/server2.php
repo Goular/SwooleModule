@@ -59,7 +59,7 @@ class Server
     {
         echo "Get Message From Client {$fd}:{$data}\n";
 
-        $test = new Test();
+        $this->test = new Test();
         var_dump($this->test);
 
         $serv->task(serialize($test));

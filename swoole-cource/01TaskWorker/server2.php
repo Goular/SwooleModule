@@ -85,7 +85,7 @@ class Server
         echo "Task {$task_id} finish\n";
         echo "Result:{$data}\n";
 
-        var_dump($data->index);
+        var_dump($this->test);
     }
 
 }

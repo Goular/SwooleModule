@@ -9,7 +9,7 @@ function onRead()
         swoole_event_del($socket);
     }
     echo "\nRECV:{$buffer}";
-    fwrite(STDOUT, "Enter Msg：");
+    fwrite(STDOUT, "Enter Msg1：");
 }
 
 function onWrite()
@@ -27,10 +27,10 @@ function onInput()
         exit();
     }
     swoole_event_write($socket, $msg);
-    fwrite(STDOUT, "Enter Msg:");
+    fwrite(STDOUT, "Enter Msg2:");
 }
 
 swoole_event_add($socket, 'onRead', 'onWrite');
 swoole_event_add(STDIN, 'onInput');
 
-fwrite(STDOUT, "Enter MSG：");
+fwrite(STDOUT, "Enter MSG3：");

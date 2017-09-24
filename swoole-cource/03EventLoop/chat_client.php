@@ -1,4 +1,6 @@
 <?php
+//客户端需要多开才能进行聊天室功能
+
 $socket = stream_socket_client("tcp://127.0.0.1:7070", $errno, $errstr, 30);
 function onRead()
 {
@@ -8,7 +10,7 @@ function onRead()
         echo "Server Closed\n";
         swoole_event_del($socket);
     }
-    echo "\nRECV:{$buffer}";
+    echo "\nRECV:{$buffer}\n";
     fwrite(STDOUT, "Enter Msg1：");
 }
 

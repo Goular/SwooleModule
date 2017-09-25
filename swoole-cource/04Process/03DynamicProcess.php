@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 子进程开孙子进程
+ * 子进程开孙子进程,
  * Class BaseProcess
  */
 class BaseProcess

@@ -49,7 +49,7 @@ class BaseProcess
                 if ($used == 0) {
                     $flag = false;
                     $this->process_use[$pid] = 1;
-                    $this->process_list[$pid]->write($index, "Hello");
+                    $this->process_list[$pid]->write($index."Hello");
                     $this->current_num++;
                 }
             }

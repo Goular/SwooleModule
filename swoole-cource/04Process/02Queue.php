@@ -16,7 +16,7 @@ class BaseProcess
      */
     public function __construct()
     {
-        $this->process = new swoole_process([$this, 'tun'], false, true);
+        $this->process = new swoole_process([$this, 'run'], false, true);
         //创建消息队列
         if (!$this->process->useQueue(123)) {
             var_dump(swoole_strerror(swoole_errno()));

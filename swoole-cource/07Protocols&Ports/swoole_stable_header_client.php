@@ -17,10 +17,11 @@ class Client
         if (!$this->client->connect("127.0.0.1", 7070)) {
             echo "Error:{$this->client->errMsg}[{$this->client->errCode}]\n";
         }
-        $msg_eof = "This is a Msg" . random_int(100, 999) . "\r\n";
+        $msg_normal = "This is a Msg.";
+        $msg_length = pack("N", strlen($msg_normal)) . $msg_normal;
         $i = 0;
         while ($i < 100) {
-            $this->client->send($msg_eof);
+            $this->client->send($msg_length);
             $i++;
         }
     }

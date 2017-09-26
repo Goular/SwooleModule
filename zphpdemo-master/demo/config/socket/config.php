@@ -9,7 +9,7 @@ return array(
     'ctrl_path' => 'ctrl',
     'socket' => array(
         'host' => '0.0.0.0',                          //socket 监听ip
-        'port' => 8991,                             //socket 监听端口
+        'port' => 7070,                             //socket 监听端口
         'adapter' => 'Swoole',                          //socket 驱动模块
         'server_type' => Swoole::TYPE_TCP,              //socket 业务模型 tcp/udp/http/websocket
         'daemonize' => 0,                             //是否开启守护进程

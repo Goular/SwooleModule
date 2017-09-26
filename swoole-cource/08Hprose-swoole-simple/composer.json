@@ -1,6 +1,5 @@
 {
   "require": {
-    "hprose/hprose": ">=2.0.0",
-    "hprose/hprose-swoole": "2.0.11"
+    "hprose/hprose": ">=2.0.0"
   }
 }

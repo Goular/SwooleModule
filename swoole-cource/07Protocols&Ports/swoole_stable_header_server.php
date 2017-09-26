@@ -42,7 +42,7 @@ class server
 
     public function onReceive(swoole_server $serv, $fd, $from_id, $data)
     {
-        //返回数据的长度
+        //返回数据的长度,然后数据段清除二进制内容，得出结果
         $length = unpack("N", $data)[1];
         echo "Length={$length}\n";
         $msg = substr($data, -$length);

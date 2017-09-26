@@ -21,9 +21,9 @@ class server
             'package_eof' => "\r\n"
         ]);
         $this->serv->on("Start", array($this, "onStart"));
-        $this->serv->on("Connect", array([$this, "onConnect"]));
-        $this->serv->on("Receive", array([$this, "onReceive"]));
-        $this->serv->on("Close", array([$this, "onClose"]));
+        $this->serv->on("Connect", array($this, "onConnect"));
+        $this->serv->on("Receive", array($this, "onReceive"));
+        $this->serv->on("Close", array($this, "onClose"));
 
         $this->serv->start();
     }

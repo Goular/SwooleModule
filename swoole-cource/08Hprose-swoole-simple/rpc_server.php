@@ -33,7 +33,7 @@ class server
         ]);
         $rpc_service = new Service();
         $rpc_service->socketHandle($port);
-        $rpc_service->addFunction([$this, 'upload']);
+        //$rpc_service->addFunction([$this, 'upload']);
         $rpc_service->addFunction([$this, 'add']);
 
         //添加UDP 端口监听

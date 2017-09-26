@@ -34,7 +34,7 @@ class server
         $rpc_service = new Service();
         $rpc_service->socketHandle($port);
         $rpc_service->addFunction([$this, 'upload']);
-
+        $rpc_service->addFunction([$this, 'add']);
 
         //添加UDP 端口监听
         $udp_port = $this->serv->listen("0.0.0.0", 7072, SWOOLE_SOCK_UDP);
@@ -63,7 +63,12 @@ class server
     public function upload($data)
     {
         var_dump($data);
-        return "Server::".$data;
+        return "Server::" . $data;
+    }
+
+    public function add($a1, $a2)
+    {
+        return "Server2016::" . ($a1 + $a2);
     }
 
     public function onClose(swoole_server $serv, $fd, $from_id)

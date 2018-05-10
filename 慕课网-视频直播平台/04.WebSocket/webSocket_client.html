@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>WS测试</h1>
+<script>
+    var wsUrl = "ws://aisitar.com:7071"
+    var webSocket = new WebSocket(wsUrl)
+    // 实例化open属性
+    webSocket.onopen = function (ev) {
+        webSocket.send("Hello Goular")
+        console.log("Connected-Swoole-Success")
+    }
+    // 实例化 onmessage
+    webSocket.onmessage = function (ev) {
+        console.log("ws-server-return-data:" + ev.data)
+    }
+    // onclose
+    webSocket.onclose = function (ev) {
+        console.log("close")
+    }
+    // onerror
+    webSocket.onerror = function (ev) {
+        console.log("error:" + evt.data)
+    }
+</script>
+</body>
+</html>

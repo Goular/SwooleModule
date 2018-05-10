@@ -1,0 +1,6 @@
+{
+  "require": {
+    "hprose/hprose": ">=2.0.0",
+    "hprose/hprose-swoole": "dev-master"
+  }
+}
